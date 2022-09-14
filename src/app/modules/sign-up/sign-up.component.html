@@ -1,0 +1,58 @@
+<div class="container">
+  <mat-card class="mat-elevation-z6">
+    <h1>Sign Up</h1>
+    <form [formGroup]="signUpForm" (ngSubmit)="submitForm()">
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          placeholder="johndoe@gmail.com"
+          formControlName="email"
+        />
+      </mat-form-field>
+      <span
+        *ngIf="
+          signUpForm.get('email')?.dirty && signUpForm.get('email')?.errors
+        "
+      >
+        Fill it with a valid email
+      </span>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          placeholder="Password123!#$%"
+          formControlName="password"
+          id="password"
+          type="text"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Confirm password</mat-label>
+        <input
+          matInput
+          placeholder="Password123!#$%"
+          formControlName="confirm_password"
+          id="confirm_password"
+          type="text"
+          (keyup)="isPasswordMatching()"
+        />
+      </mat-form-field>
+
+      <span *ngIf="checkingPassword">Your password doesn't match</span
+      ><button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="
+          signUpForm.get('email')?.errors ||
+          signUpForm.get('password')?.errors ||
+          signUpForm.get('confirm_password')?.errors ||
+          !passwordMatch
+        "
+      >
+        Send
+      </button>
+    </form>
+  </mat-card>
+</div>

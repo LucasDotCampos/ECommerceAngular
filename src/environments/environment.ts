@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  appTitle: 'Commerce',
+  production: false,
+  apiUrl: 'https://ecommerceapi2022.herokuapp.com',
 };
 
 /*

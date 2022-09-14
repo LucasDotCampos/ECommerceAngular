@@ -1,0 +1,30 @@
+<div class="container">
+  <mat-card class="mat-elevation-z6">
+    <h1>Sign In</h1>
+    <form [formGroup]="signInForm" (ngSubmit)="submitForm()">
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          placeholder="johndoe@gmail.com"
+          formControlName="email"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          placeholder="Password123!#$%"
+          formControlName="password"
+          id="password"
+          type="text"
+        />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="">
+        Send
+      </button>
+    </form>
+  </mat-card>
+</div>

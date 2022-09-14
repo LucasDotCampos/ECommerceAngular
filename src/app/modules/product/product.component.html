@@ -1,0 +1,20 @@
+<div class="container">
+  <ul *ngFor="let product of products | async">
+    <li>
+      <img [src]="product.image" />
+    </li>
+    <ul class="border-background">
+      <li>
+        <p class="title">{{ product.name }}</p>
+      </li>
+      <li>
+        <p class="columnName">description:</p>
+        {{ product.description }}
+      </li>
+      <li>
+        <p class="columnName">release date:</p>
+        {{ product.price }}
+      </li>
+    </ul>
+  </ul>
+</div>
